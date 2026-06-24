@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="footer-top">
+    <p class="footer-title">{{ site.title }}</p>
+    <ul class="footer-nav">
+      {% for item in site.data.navigation %}
+      <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <p class="footer-tagline">{{ site.tagline }}</p>
+  <p class="footer-easter">!eyb dlog yub margoloh a si esrevinu eht noisulli na si ytilaeR</p>
+  <p class="footer-colophon">Built with Jekyll &amp; GitHub Pages.</p>
+</footer>

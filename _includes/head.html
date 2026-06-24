@@ -1,0 +1,14 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="max-image-preview:large">
+  {%- assign page_title = page.title | default: site.title -%}
+  <title>{% if page.url == "/" %}{{ site.title }} &ndash; {{ site.tagline }}{% else %}{{ page_title }} &ndash; {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/assets/images/site/logo.jpg' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/site/logo.jpg' | relative_url }}">
+  <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/Vollkorn.woff2' | relative_url }}" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/FiraCode.woff2' | relative_url }}" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<main class="container gallery">
+  <h1 class="page-title">{{ page.title }}</h1>
+  <div class="gallery-grid">
+    {% for img in page.images %}
+    <a class="gallery-item" href="{{ img.src | relative_url }}" aria-label="{{ img.alt | default: page.title }}">
+      <img loading="lazy" src="{{ img.src | relative_url }}" alt="{{ img.alt }}">
+    </a>
+    {% endfor %}
+  </div>
+</main>
