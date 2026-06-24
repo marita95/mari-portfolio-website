@@ -1,0 +1,40 @@
+# --- Site settings -----------------------------------------------------------
+title: Mari M.
+tagline: A portfolio website.
+description: A portfolio website.
+author: Mari M.
+email: mmana@ik.me
+lang: en-GB
+
+# Production URL. With the custom domain at the apex, keep baseurl empty.
+url: "https://mari.im"
+baseurl: ""
+
+# --- Collections -------------------------------------------------------------
+collections:
+  galleries:
+    output: true
+    permalink: /:name/
+
+# Blog posts keep the original /yyyy/mm/dd/title/ permalink shape.
+permalink: /:year/:month/:day/:title/
+
+defaults:
+  - scope: { path: "", type: galleries }
+    values: { layout: gallery }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+# --- Build -------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .jekyll-cache
+  - .sass-cache

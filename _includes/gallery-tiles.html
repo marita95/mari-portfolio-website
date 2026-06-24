@@ -1,0 +1,9 @@
+{%- assign tiles = site.galleries | sort: "order" -%}
+<div class="tiles-grid">
+  {% for g in tiles %}
+  <a class="tile" href="{{ g.url | relative_url }}">
+    <img loading="lazy" src="{{ g.cover | relative_url }}" alt="{{ g.title }}">
+    <span class="tile-label">{{ g.title }}</span>
+  </a>
+  {% endfor %}
+</div>

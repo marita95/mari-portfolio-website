@@ -1,0 +1,20 @@
+<header class="site-header">
+  <a class="site-logo" href="{{ '/' | relative_url }}" rel="home" aria-label="{{ site.title }} — home">
+    <img src="{{ '/assets/images/site/logo.jpg' | relative_url }}" width="127" height="127" alt="{{ site.title }}">
+  </a>
+  <nav class="site-nav" aria-label="Menu">
+    <button class="nav-toggle" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5h16v1.5H4z"/><path d="M4 15h16v1.5H4z"/></svg>
+    </button>
+    <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+      <button class="nav-close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06z"/></svg>
+      </button>
+      <ul class="nav-list">
+        {% for item in site.data.navigation %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</header>
