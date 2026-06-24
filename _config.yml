@@ -28,8 +28,6 @@ defaults:
 # --- Build -------------------------------------------------------------------
 markdown: kramdown
 highlighter: rouge
-sass:
-  style: compressed
 
 exclude:
   - Gemfile

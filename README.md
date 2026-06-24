@@ -14,7 +14,7 @@ Gemfile                pins Jekyll to GitHub Pages' version for local preview
 _layouts/              default, home, page, post, gallery
 _includes/             head, header (logo + menu), footer, gallery-tiles, lightbox
 _data/navigation.yml   the menu links (About / Blog / Photos)
-assets/css/main.scss   all styling (compiles to main.css)
+assets/css/main.css    all styling (plain CSS — no Sass, builds anywhere)
 assets/js/main.js      menu overlay + lightbox (vanilla JS)
 assets/fonts/          Vollkorn + Fira Code (self-hosted, SIL OFL)
 assets/images/         logo, gallery photos, blog images
