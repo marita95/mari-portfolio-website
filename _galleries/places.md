@@ -17,6 +17,11 @@ images:
   - src: /assets/images/galleries/places/89E4D685-2EBA-4897-8DD5-B554B01AD95B_1_102_o.jpeg
     alt: "Palace of Fine Arts - San Francisco, CA, USA"
   - src: /assets/images/galleries/places/P1010011.jpg
-  - src: /assets/images/galleries/places/CD7C6F38-9274-45C2-9D1C-DFA86688BDF8_4_5005_c.jpeg
-  - src: /assets/images/galleries/places/BFB38222-762F-4DBA-97DD-35C3D781529B_1_102_o.jpeg
+    alt: "Edinburgh"
+  - src: /assets/images/galleries/places/IMG_5346.jpg
+    alt: "Merton College tower, Oxford"
+  - src: /assets/images/galleries/places/IMG_5462.jpg
+    alt: "The Ivy, Oxford"
+  - src: /assets/images/galleries/places/IMG_5294.jpg
+    alt: "Merton College tower at sunset, Oxford"
 ---
