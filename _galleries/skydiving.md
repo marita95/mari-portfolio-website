@@ -2,7 +2,7 @@
 layout: gallery
 title: Skydiving
 order: 3
-cover: /assets/images/galleries/skydiving/F13AF6D5-6D5F-4DA1-9873-089F433CE89E_1_201_a-768x1024.jpeg
+cover: /assets/images/galleries/skydiving/F13AF6D5-6D5F-4DA1-9873-089F433CE89E_1_201_a.jpeg
 images:
   - src: /assets/images/galleries/skydiving/F13AF6D5-6D5F-4DA1-9873-089F433CE89E_1_201_a.jpeg
   - src: /assets/images/galleries/skydiving/A1D05B8B-33D5-4176-94A5-DEF486B4881A_1_201_a.jpeg

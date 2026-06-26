@@ -2,7 +2,7 @@
 layout: gallery
 title: Events
 order: 1
-cover: /assets/images/galleries/events/IMG_3683-1024x683.jpg
+cover: /assets/images/galleries/events/IMG_3683.jpg
 images:
   - src: /assets/images/galleries/events/IMG_3419.jpg
     alt: "Slim Radio @ Skate Cafe 2025"

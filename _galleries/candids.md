@@ -2,7 +2,7 @@
 layout: gallery
 title: Candids
 order: 5
-cover: /assets/images/galleries/candids/2D95409D-729A-4306-8305-DDF131EE58B4_1_102_a-1024x732.jpeg
+cover: /assets/images/galleries/candids/2D95409D-729A-4306-8305-DDF131EE58B4_1_102_a.jpeg
 images:
   - src: /assets/images/galleries/candids/0C667709-C30F-465B-9F3B-85BC8F16EB40_1_102_a.jpeg
   - src: /assets/images/galleries/candids/2D95409D-729A-4306-8305-DDF131EE58B4_1_102_a.jpeg

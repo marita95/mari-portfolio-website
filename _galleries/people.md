@@ -2,7 +2,7 @@
 layout: gallery
 title: People
 order: 2
-cover: /assets/images/galleries/people/B96D0B9A-76B2-4CC3-B446-EC5143DBBE75_1_105_c-732x1024.jpeg
+cover: /assets/images/galleries/people/B96D0B9A-76B2-4CC3-B446-EC5143DBBE75_1_105_c.jpeg
 images:
   - src: /assets/images/galleries/people/B96D0B9A-76B2-4CC3-B446-EC5143DBBE75_1_105_c.jpeg
   - src: /assets/images/galleries/people/E2E8A5AE-EFD6-44B6-B323-77CBDD502980_1_105_c.jpeg
