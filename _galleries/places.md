@@ -2,7 +2,7 @@
 layout: gallery
 title: Places
 order: 6
-cover: /assets/images/galleries/places/7AFE06A9-548A-4C2B-9162-6891C346A863_1_105_c-732x1024.jpeg
+cover: /assets/images/galleries/places/7AFE06A9-548A-4C2B-9162-6891C346A863_1_105_c.jpeg
 images:
   - src: /assets/images/galleries/places/7AFE06A9-548A-4C2B-9162-6891C346A863_1_105_c.jpeg
     alt: "Fountain in Split, Croatia"

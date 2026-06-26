@@ -56,6 +56,11 @@ CNAME                  custom domain for GitHub Pages
 - **Menu links** live in `_data/navigation.yml`. **Site title / tagline** live in
   `_config.yml`.
 
+- **Image quality** — always add the full-resolution original; the theme never
+  downsizes, so whatever you upload is what's served. To replace a photo with a
+  sharper version, upload it over the old file (same name) or point the `src:` /
+  `cover:` at the new file. (The home-page tiles use each gallery's `cover:`.)
+
 ## Preview locally
 
 ```bash
