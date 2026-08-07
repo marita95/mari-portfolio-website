@@ -15,6 +15,11 @@ collections:
   galleries:
     output: true
     permalink: /:name/
+  # Substack posts, refreshed daily by tools/fetch_substack.py. output: false
+  # means no pages are generated for them — they only appear in the /blog/
+  # list, linking straight to Substack.
+  substack:
+    output: false
 
 # Blog posts keep the original /yyyy/mm/dd/title/ permalink shape.
 permalink: /:year/:month/:day/:title/
