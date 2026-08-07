@@ -56,6 +56,29 @@ CNAME                  custom domain for GitHub Pages
 - **Menu links** live in `_data/navigation.yml`. **Site title / tagline** live in
   `_config.yml`.
 
+- **Substack posts** — they appear in the `/blog/` list automatically, mixed in
+  with the vignettes and sorted by date. They live in `_substack/` (one small
+  file per post, generated — don't hand-edit) and link straight to Substack.
+
+  To pull in new posts:
+
+  ```bash
+  ./tools/refresh_substack.sh
+  ```
+
+  That fetches the feed and, if there's anything new, commits and pushes it.
+
+  There's also a daily GitHub Action (`.github/workflows/substack.yml`) that
+  tries to do this for you. It often can't: **Substack returns 403 to GitHub's
+  servers**, so scheduled runs usually skip with a warning instead of updating.
+  The same request works fine from your own computer, which is why the script
+  above exists. Nothing is ever lost when a run is blocked — existing posts stay
+  put. To have your Mac do it daily, schedule it while you're logged in:
+
+  ```bash
+  echo "0 9 * * * cd $PWD && ./tools/refresh_substack.sh >> /tmp/substack.log 2>&1" | crontab -
+  ```
+
 - **Image quality** — always add the full-resolution original; the theme never
   downsizes, so whatever you upload is what's served. To replace a photo with a
   sharper version, upload it over the old file (same name) or point the `src:` /
