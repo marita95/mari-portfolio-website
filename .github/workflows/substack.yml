@@ -1,0 +1,62 @@
+name: Refresh Substack posts
+
+# Pulls the latest posts from the Substack RSS feed into _data/substack.json.
+# Runs every day; commits only when something actually changed. If the feed is
+# unreachable the job fails (so it shows up red / emails you) and the site keeps
+# serving the last known good posts.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"      # 06:17 UTC daily (off-the-hour = less queue delay)
+  workflow_dispatch:           # lets you run it by hand from the Actions tab
+  push:
+    paths:                     # re-run if the fetcher itself changes
+      - "tools/fetch_substack.py"
+      - ".github/workflows/substack.yml"
+
+permissions:
+  contents: write              # to commit the refreshed data file
+  pages: write                 # to nudge a Pages rebuild after committing
+
+concurrency:
+  group: substack-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Fetch the Substack feed
+        env:
+          SUBSTACK_FEED: https://marimana.substack.com/feed
+          SUBSTACK_MAX_POSTS: "10"
+        run: python3 tools/fetch_substack.py
+
+      - name: Commit if the posts changed
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain _substack)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _substack
+          git commit -m "Refresh Substack posts"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Ask GitHub Pages to rebuild
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds" \
+            && echo "Pages rebuild requested."

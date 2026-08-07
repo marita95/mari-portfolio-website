@@ -3,13 +3,36 @@ layout: default
 title: Blog
 permalink: /blog/
 ---
+{%- comment -%}
+  Substack posts (the _substack collection, refreshed daily) and the site's own
+  vignettes are merged into one list and sorted by date, newest first.
+{%- endcomment -%}
+{%- assign articles = site.posts | concat: site.substack | sort: "date" | reverse -%}
 <main class="container blog-list">
-  {% for post in site.posts %}
+  {% for item in articles %}
+    {%- if item.external_url -%}
+      {%- assign link = item.external_url -%}
+    {%- else -%}
+      {%- assign link = item.url | relative_url -%}
+    {%- endif -%}
   <article class="post-summary">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    {% if post.categories %}<p class="post-meta">{{ post.categories | join: ", " }}</p>{% endif %}
-    <p>{{ post.excerpt | strip_html | strip_newlines | truncatewords: 55 }}</p>
-    <p><a href="{{ post.url | relative_url }}">Read more &rarr;</a></p>
+    <h2><a href="{{ link }}"{% if item.external_url %} rel="noopener"{% endif %}>{{ item.title }}</a></h2>
+    {%- assign meta = item.source | default: item.categories | join: ", " %}
+    {% if meta != "" %}<p class="post-meta">{{ meta }}</p>{% endif %}
+    <p>{{ item.summary | default: item.excerpt | strip_html | strip_newlines | truncatewords: 55 }}</p>
+    <p>
+      <a href="{{ link }}"{% if item.external_url %} rel="noopener"{% endif %}>
+        {% if item.external_url %}Read on Substack{% else %}Read more{% endif %} &rarr;
+      </a>
+    </p>
   </article>
   {% endfor %}
+
+  <div class="subscribe-embed">
+    <iframe src="https://marimana.substack.com/embed"
+            width="480" height="320"
+            title="Subscribe to my Substack"
+            loading="lazy"
+            frameborder="0" scrolling="no"></iframe>
+  </div>
 </main>
