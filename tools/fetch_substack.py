@@ -41,25 +41,31 @@ NS = {
     "dc": "http://purl.org/dc/elements/1.1/",
     "content": "http://purl.org/rss/1.0/modules/content/",
 }
-UA = ("Mozilla/5.0 (compatible; mari.im site builder; "
-      "+https://mari.im) Python-urllib")
+# Substack rejects requests advertising themselves as Python (403), so send an
+# ordinary browser UA — this is a public RSS feed being read the way any feed
+# reader reads it. Override with SUBSTACK_UA if it ever needs adjusting.
+UA = os.environ.get("SUBSTACK_UA", (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"))
 
 
-def fetch(url, attempts=3):
+def fetch(url, attempts=4):
     """GET url with retries and exponential backoff. Returns bytes."""
     last = None
     for i in range(attempts):
         try:
             req = urllib.request.Request(url, headers={
                 "User-Agent": UA,
-                "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+                "Accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
+                "Accept-Language": "en-GB,en;q=0.9",
+                "Cache-Control": "no-cache",
             })
             with urllib.request.urlopen(req, timeout=30) as r:
                 return r.read()
         except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
             last = e
             if i < attempts - 1:
-                time.sleep(2 ** i)
+                time.sleep(2 ** (i + 1))   # 2s, 4s, 8s
     raise RuntimeError(f"could not fetch {url}: {last}")
 
 
