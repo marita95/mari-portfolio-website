@@ -29,11 +29,25 @@ jobs:
       - name: Check out the site
         uses: actions/checkout@v4
 
+      # Substack blocks datacenter IPs, so this often comes back 403 on a
+      # hosted runner even though the identical request works from a normal
+      # connection. Exit code 2 means "blocked" — warn and carry on rather
+      # than failing the job every day. Any other failure is a real error.
       - name: Fetch the Substack feed
         env:
           SUBSTACK_FEED: https://marimana.substack.com/feed
-          SUBSTACK_MAX_POSTS: "10"
-        run: python3 tools/fetch_substack.py
+          SUBSTACK_MAX_POSTS: "20"
+        run: |
+          set +e
+          python3 tools/fetch_substack.py
+          code=$?
+          set -e
+          if [ "$code" -eq 2 ]; then
+            echo "::warning::Substack blocked this runner (403). Posts left unchanged — run 'python3 tools/fetch_substack.py' locally to refresh."
+            echo "- ⚠️ Substack blocked this runner (403); posts unchanged." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit $code
 
       - name: Commit if the posts changed
         id: commit

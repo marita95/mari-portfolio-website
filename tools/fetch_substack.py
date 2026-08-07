@@ -162,8 +162,14 @@ def main():
     try:
         posts = parse(fetch(FEED_URL))
     except Exception as e:                                  # noqa: BLE001
-        print(f"::error::Substack fetch failed: {e}", file=sys.stderr)
+        print(f"Substack fetch failed: {e}", file=sys.stderr)
         print("Nothing written; existing entries left in place.", file=sys.stderr)
+        # Substack blocks datacenter IPs, so scheduled CI runs get a 403 even
+        # with a browser UA, while the same request succeeds from a normal
+        # connection. Report that as "blocked" (exit 2) rather than a hard
+        # failure, so a daily job can skip quietly instead of paging you.
+        if "403" in str(e) or "Forbidden" in str(e):
+            return 2
         return 1
 
     if not posts:
