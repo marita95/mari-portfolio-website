@@ -3,12 +3,21 @@ title: Mari M.
 tagline: A portfolio website.
 description: A portfolio website.
 author: Mari M.
-email: [redacted]
 lang: en-GB
 
 # Production URL. With the custom domain at the apex, keep baseurl empty.
 url: "https://mari.im"
 baseurl: ""
+
+# --- Contact form ------------------------------------------------------------
+# The form posts to a third-party form service, which holds the destination
+# address on its own servers. That keeps the address out of this repo and out
+# of the published HTML, so scrapers never see it.
+# The form only renders once `endpoint` is set, so the page never shows a
+# broken form. `access_key` is only needed by some providers (e.g. Web3Forms).
+contact:
+  endpoint: ""
+  access_key: ""
 
 # --- Collections -------------------------------------------------------------
 collections:

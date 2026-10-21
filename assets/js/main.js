@@ -80,3 +80,49 @@
     else if (e.key === "ArrowRight") show(current + 1);
   });
 })();
+
+// Contact form: submit in place so the visitor stays on the page. Falls back
+// to a normal form POST if JavaScript is unavailable.
+(function () {
+  "use strict";
+  var form = document.querySelector(".contact-form");
+  if (!form) return;
+
+  var status = form.querySelector(".form-status");
+  var button = form.querySelector("button[type=submit]");
+
+  function setStatus(text, kind) {
+    status.textContent = text;
+    status.className = "form-status" + (kind ? " is-" + kind : "");
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    var payload = {};
+    new FormData(form).forEach(function (value, key) { payload[key] = value; });
+
+    button.disabled = true;
+    setStatus("Sending…", "");
+
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (body) {
+        if (res.ok) {
+          form.reset();
+          setStatus("Thanks — your message is on its way.", "ok");
+        } else {
+          setStatus(body.message || "Something went wrong. Please try again later.", "err");
+        }
+      });
+    }).catch(function () {
+      setStatus("Couldn't reach the server. Please check your connection and try again.", "err");
+    }).then(function () {
+      button.disabled = false;
+    });
+  });
+})();
