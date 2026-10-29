@@ -260,6 +260,8 @@ main { display: block; margin-top: var(--space-60); }
 .form-status.is-ok { font-weight: 500; }
 .form-status.is-err { color: #b00020; }
 
-/* Essay-length posts: give consecutive paragraphs a clear break so numbered
-   points don't run together into a wall of text. */
-.post .entry p + p { margin-top: var(--space-40); }
+/* Essay-length posts: a clear blank line between blocks so numbered points
+   don't run together. Covers every block (paragraphs, quotes, lists, rules),
+   not just paragraph-after-paragraph, and outranks `.entry p { margin: 0 }`. */
+.post .entry > * + * { margin-top: 1.6em; }
+.post .entry > blockquote { margin: 1.6em 0; }

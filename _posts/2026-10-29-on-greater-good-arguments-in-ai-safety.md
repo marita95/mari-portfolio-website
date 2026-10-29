@@ -2,7 +2,7 @@
 layout: post
 title: 'A Response to "On Greater Good Arguments in AI Safety"'
 date: 2026-10-29 12:00:00 +0000
-categories: essays
+categories: Drops
 ---
 
 *This is a response to the first half of [this LessWrong post](https://www.lesswrong.com/posts/WRvxRHMCmc3Qt4axz/greater-good-arguments-in-ai-safety).*
