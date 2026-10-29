@@ -264,4 +264,8 @@ main { display: block; margin-top: var(--space-60); }
    don't run together. Covers every block (paragraphs, quotes, lists, rules),
    not just paragraph-after-paragraph, and outranks `.entry p { margin: 0 }`. */
 .post .entry > * + * { margin-top: 1.6em; }
-.post .entry > blockquote { margin: 1.6em 0; }
+.post .entry > blockquote {
+  margin: 1.6em 0;
+  padding: 0 var(--space-30) 0 var(--space-40);
+  border-left: 2px solid color-mix(in srgb, currentColor 22%, transparent);
+}
