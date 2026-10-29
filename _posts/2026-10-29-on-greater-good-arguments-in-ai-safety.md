@@ -7,7 +7,7 @@ categories: Drops
 
 *This is a response to the first half of [this LessWrong post](https://www.lesswrong.com/posts/WRvxRHMCmc3Qt4axz/greater-good-arguments-in-ai-safety).*
 
-They gave almost no good arguments about why EA philanthropy may be a bigger issue than most admit, and why leftists argue that it can further entrench societal and economic norms.
+In my view, they gave almost no good arguments about why EA philanthropy may be a bigger issue than most admit, and why leftists argue that it can further entrench societal and economic norms.
 
 (1) I think it's a strawman, most lefties would disagree that deworming people or giving legal aid is negative/shouldn't be done nowadays, that's EV-adjacent thinking ("this is the most good I can do with my life") and only hardcore revolutionaries would agree with that probably (e.g. there are some very leftist folks who argue that reform is negative, because it allows people to get comfortable enough to put the revolution off). Black Panthers and other Marxist groups literally pioneered mutual aid, mutual aid is a huge huge thing on the left. It's top-down charity set by rich peoples' priorities that's the issue.
 
