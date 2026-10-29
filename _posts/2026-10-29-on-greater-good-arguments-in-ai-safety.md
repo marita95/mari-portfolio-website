@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "On Greater Good Arguments in AI Safety"
+title: 'A Response to "On Greater Good Arguments in AI Safety"'
 date: 2026-10-29 12:00:00 +0000
 categories: essays
 ---
 
-This is a response to the first half of [this LessWrong post](https://www.lesswrong.com/posts/WRvxRHMCmc3Qt4axz/greater-good-arguments-in-ai-safety).
+*This is a response to the first half of [this LessWrong post](https://www.lesswrong.com/posts/WRvxRHMCmc3Qt4axz/greater-good-arguments-in-ai-safety).*
 
 They gave almost no good arguments about why EA philanthropy may be a bigger issue than most admit, and why leftists argue that it can further entrench societal and economic norms.
 

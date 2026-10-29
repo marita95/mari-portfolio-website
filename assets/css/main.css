@@ -259,3 +259,7 @@ main { display: block; margin-top: var(--space-60); }
 .form-status { margin: var(--gap) 0 0; min-height: 1.5em; font-size: 0.9rem; }
 .form-status.is-ok { font-weight: 500; }
 .form-status.is-err { color: #b00020; }
+
+/* Essay-length posts: give consecutive paragraphs a clear break so numbered
+   points don't run together into a wall of text. */
+.post .entry p + p { margin-top: var(--space-40); }
