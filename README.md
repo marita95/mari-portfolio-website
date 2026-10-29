@@ -68,12 +68,10 @@ CNAME                  custom domain for GitHub Pages
 
   That fetches the feed and, if there's anything new, commits and pushes it.
 
-  There's also a daily GitHub Action (`.github/workflows/substack.yml`) that
-  tries to do this for you. It often can't: **Substack returns 403 to GitHub's
-  servers**, so scheduled runs usually skip with a warning instead of updating.
-  The same request works fine from your own computer, which is why the script
-  above exists. Nothing is ever lost when a run is blocked — existing posts stay
-  put. To have your Mac do it daily, schedule it while you're logged in:
+  Run it from your own computer: **Substack returns 403 to GitHub's servers**,
+  so this can't be automated from CI. Nothing is ever lost if a fetch fails —
+  existing posts stay put. To have your Mac do it daily, schedule it while
+  you're logged in:
 
   ```bash
   echo "0 9 * * * cd $PWD && ./tools/refresh_substack.sh >> /tmp/substack.log 2>&1" | crontab -
